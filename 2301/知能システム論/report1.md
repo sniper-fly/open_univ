@@ -1,4 +1,4 @@
-# 02-02
+# 課題番号02-02
 
 ![](./dfs_bfs.png)
 上記のグラフを、今回は簡易的に木構造で表現し、深さ優先探索(dfs),
@@ -103,6 +103,116 @@ def main():
   print(result)
 
 main()
+```
+
+探索の過程は以下のようになった。
+
+## 深さ優先探索
+```
+================
+dfs start
+================
+loop: 1
+n: A, Left: B, Right: C
+open_list: ['A']
+closed_list: []
+---------------------
+loop: 2
+n: B, Left: D, Right: E
+open_list: ['B', 'C']
+closed_list: ['A']
+---------------------
+loop: 3
+n: D, Left: F, Right: G
+open_list: ['D', 'E', 'C']
+closed_list: ['B', 'A']
+---------------------
+loop: 4
+n: F, Left: None, Right: None
+open_list: ['F', 'G', 'E', 'C']
+closed_list: ['D', 'B', 'A']
+---------------------
+loop: 5
+n: G, Left: H, Right: I
+open_list: ['G', 'E', 'C']
+closed_list: ['F', 'D', 'B', 'A']
+---------------------
+loop: 6
+n: H, Left: None, Right: None
+open_list: ['H', 'I', 'E', 'C']
+closed_list: ['G', 'F', 'D', 'B', 'A']
+---------------------
+loop: 7
+n: I, Left: None, Right: None
+open_list: ['I', 'E', 'C']
+closed_list: ['H', 'G', 'F', 'D', 'B', 'A']
+---------------------
+loop: 8
+n: E, Left: None, Right: None
+open_list: ['E', 'C']
+closed_list: ['I', 'H', 'G', 'F', 'D', 'B', 'A']
+---------------------
+loop: 9
+n: C, Left: None, Right: None
+open_list: ['C']
+closed_list: ['E', 'I', 'H', 'G', 'F', 'D', 'B', 'A']
+---------------------
+C
+
+```
+
+## 幅優先探索
+```
+================
+bfs start
+================
+loop: 1
+n: A, Left: B, Right: C
+open_list: ['A']
+closed_list: []
+---------------------
+loop: 2
+n: B, Left: D, Right: E
+open_list: ['B', 'C']
+closed_list: ['A']
+---------------------
+loop: 3
+n: C, Left: None, Right: None
+open_list: ['C', 'D', 'E']
+closed_list: ['B', 'A']
+---------------------
+loop: 4
+n: D, Left: F, Right: G
+open_list: ['D', 'E']
+closed_list: ['C', 'B', 'A']
+---------------------
+loop: 5
+n: E, Left: None, Right: None
+open_list: ['E', 'F', 'G']
+closed_list: ['D', 'C', 'B', 'A']
+---------------------
+loop: 6
+n: F, Left: None, Right: None
+open_list: ['F', 'G']
+closed_list: ['E', 'D', 'C', 'B', 'A']
+---------------------
+loop: 7
+n: G, Left: H, Right: I
+open_list: ['G']
+closed_list: ['F', 'E', 'D', 'C', 'B', 'A']
+---------------------
+loop: 8
+n: H, Left: None, Right: None
+open_list: ['H', 'I']
+closed_list: ['G', 'F', 'E', 'D', 'C', 'B', 'A']
+---------------------
+loop: 9
+n: I, Left: None, Right: None
+open_list: ['I']
+closed_list: ['H', 'G', 'F', 'E', 'D', 'C', 'B', 'A']
+---------------------
+I
+
 ```
 
 # 参考文献
